@@ -1,0 +1,8 @@
+Create examplePDF.o:
+g++ -Wall -std=c++11 -c -I./libharu/include examplePDF.cpp
+
+Create executable examplePDF
+g++ -Wall -std=c++11 -o examplePDF examplePDF.o -L./libharu/src -lhpdfs
+
+Run examplePDF executable:
+./examplePDF
