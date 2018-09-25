@@ -70,9 +70,7 @@ int main(int argc, char *argv[])
         }
       }
     }
-
   }
-
 
   input2.close();
 }

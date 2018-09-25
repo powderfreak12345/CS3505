@@ -25,7 +25,7 @@ public:
   std::vector<std::string> wordsWithWildCardPrefix(std::string prefix);
 
 private:
-  std::vector<std::string> allWordsStartingWithPrefix(std::string prefix, int charIndex);
+  std::vector<std::string> allWordsStartingWithPrefix(std::string& prefix, int charIndex);
   std::vector<std::string> allWordsFromTrie(std::string prefix);
 };
 

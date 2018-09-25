@@ -118,7 +118,7 @@ vector<string> Trie::allWordsStartingWithPrefix(string prefix)
   return words;
 }
 
-vector<string> Trie::allWordsStartingWithPrefix(string prefix, int charIndex)
+vector<string> Trie::allWordsStartingWithPrefix(string& prefix, int charIndex)
 {
   vector<string> words;
 
