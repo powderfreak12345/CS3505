@@ -16,6 +16,23 @@ Trie::Trie()
   isWordEnd = false;
 }
 
+// Copy constructor for a Trie
+Trie::Trie(Trie& other)
+{
+  isWordEnd = other.isWordEnd;
+  for (int i = 0; i < 26; i++)
+  {
+    if (other.subTries[i] == nullptr)
+    {
+      subTries[i] = nullptr;  // Assing nullptrs where relevant
+    }
+    else
+    {
+      subTries[i] = new Trie(*other.subTries[i]); // Recurse where relevant
+    }
+  }
+}
+
 // Destructor for a Trie
 Trie::~Trie()
 {
@@ -27,6 +44,13 @@ Trie::~Trie()
       delete subTries[i];
     }
   }
+}
+
+Trie& Trie::operator=(Trie other)
+{
+  swap(isWordEnd, other.isWordEnd);
+  swap(subTries, other.subTries);
+  return *this;
 }
 
 void Trie::addAWord(string word)

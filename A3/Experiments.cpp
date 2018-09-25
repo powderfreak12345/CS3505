@@ -20,28 +20,57 @@ int main( )
   cout << "Is the empty string a word?  " << test.isAWord("") << endl;
   cout << "Is 'do' a word?  " << test.isAWord("do") << endl;
 
-  vector<string> fuckYouTest;
+  vector<string> vectorTest;
 
   cout << endl << "Querying all things starting with 'd':" << endl;
-  fuckYouTest = test.allWordsStartingWithPrefix("d");
-  for (unsigned int i = 0; i < fuckYouTest.size(); i++)
+  vectorTest = test.allWordsStartingWithPrefix("d");
+  for (unsigned int i = 0; i < vectorTest.size(); i++)
   {
-    cout << fuckYouTest[i] << endl;
+    cout << vectorTest[i] << endl;
   }
 
   cout << endl << "Querying all things starting with 'c':" << endl;
-  fuckYouTest = test.allWordsStartingWithPrefix("c");
-  for (unsigned int i = 0; i < fuckYouTest.size(); i++)
+  vectorTest = test.allWordsStartingWithPrefix("c");
+  for (unsigned int i = 0; i < vectorTest.size(); i++)
   {
-    cout << fuckYouTest[i] << endl;
+    cout << vectorTest[i] << endl;
   }
 
   cout << endl << "Querying all things:" << endl;
-  fuckYouTest = test.allWordsStartingWithPrefix("");
-  for (unsigned int i = 0; i < fuckYouTest.size(); i++)
+  vectorTest = test.allWordsStartingWithPrefix("");
+  for (unsigned int i = 0; i < vectorTest.size(); i++)
   {
-    cout << fuckYouTest[i] << endl;
+    cout << vectorTest[i] << endl;
   }
+
+  Trie copiedTrie(test);
+
+  cout << endl << "Querying all things from copied Trie:" << endl;
+  vectorTest = copiedTrie.allWordsStartingWithPrefix("");
+  for (unsigned int i = 0; i < vectorTest.size(); i++)
+  {
+    cout << vectorTest[i] << endl;
+  }
+
+  Trie assignedTrie;
+  assignedTrie.addAWord("pigs");
+  assignedTrie = test;
+  assignedTrie.addAWord("cows");
+  cout << endl << "Querying all things from assigned Trie:" << endl;
+  vectorTest = assignedTrie.allWordsStartingWithPrefix("");
+  for (unsigned int i = 0; i < vectorTest.size(); i++)
+  {
+    cout << vectorTest[i] << endl;
+  }
+
+  cout << endl << "Querying all things from original Trie (make sure nothing changed):" << endl;
+  vectorTest = test.allWordsStartingWithPrefix("");
+  for (unsigned int i = 0; i < vectorTest.size(); i++)
+  {
+    cout << vectorTest[i] << endl;
+  }
+
+
 
   return 0;
 }

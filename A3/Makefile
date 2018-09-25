@@ -12,12 +12,12 @@ TrieTest : TrieTest.cpp Trie.o
 Trie.o : Trie.cpp Trie.h
 	$(CC) $(CFLAGS) -c Trie.cpp -I.
 
-Experiments : Experiments.cpp
+Experiments : Experiments.cpp Trie.cpp Trie.h
 	$(CC) $(CFLAGS) Experiments.cpp Trie.cpp -o Experiments
 
 
 clean:
-	rm TrieTest *.o
+	rm TrieTest Experiments *.o
 
 test:
 		./TrieTest "Input1" "Input2"

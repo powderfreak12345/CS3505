@@ -16,7 +16,9 @@ private:
 
 public:
   Trie();
+  Trie(Trie& other);
   ~Trie();
+  Trie& operator=(Trie other);
   void addAWord(std::string word);
   bool isAWord(std::string word);
   std::vector<std::string> allWordsStartingWithPrefix(std::string prefix);
