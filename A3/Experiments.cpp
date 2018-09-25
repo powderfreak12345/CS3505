@@ -1,31 +1,47 @@
 // Jonathan Beutler
 // CS 3505
+// A3
 
 #include <iostream>
-#include <vector>
-#include <string>
+#include "Trie.h"
 
 using namespace std;
 
-int main()
+int main( )
 {
-  cout << "Testing 1 2 3..." << endl;
-  vector<string> test1 = {"t0", "t1", "t2"};
-  vector<string> test2 = {"t3", "t4", "t5"};
+  Trie test;
+  // test.addAWord("abcdefghijklmnopqrstuvwxyz");
+  test.addAWord("d");
+  test.addAWord("dogs");
+  test.addAWord("doughnuts");
+  test.addAWord("doug");
+  test.addAWord("cats");
 
-  test1.insert(test1.end(), test2.begin(), test2.end());
+  cout << "Is the empty string a word?  " << test.isAWord("") << endl;
+  cout << "Is 'do' a word?  " << test.isAWord("do") << endl;
 
+  vector<string> fuckYouTest;
 
-  for (int i = 0; i < 6; i++)
+  cout << endl << "Querying all things starting with 'd':" << endl;
+  fuckYouTest = test.allWordsStartingWithPrefix("d");
+  for (unsigned int i = 0; i < fuckYouTest.size(); i++)
   {
-    cout << "i: " << i << " " << test1[i] << endl;
+    cout << fuckYouTest[i] << endl;
   }
 
-  int a = 97;
-  char test3 = a;
-  cout << test3 << endl;
+  cout << endl << "Querying all things starting with 'c':" << endl;
+  fuckYouTest = test.allWordsStartingWithPrefix("c");
+  for (unsigned int i = 0; i < fuckYouTest.size(); i++)
+  {
+    cout << fuckYouTest[i] << endl;
+  }
 
+  cout << endl << "Querying all things:" << endl;
+  fuckYouTest = test.allWordsStartingWithPrefix("");
+  for (unsigned int i = 0; i < fuckYouTest.size(); i++)
+  {
+    cout << fuckYouTest[i] << endl;
+  }
 
-
-
+  return 0;
 }

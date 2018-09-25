@@ -7,7 +7,6 @@
 
 #include <string>
 #include <vector>
-#include "Node.h"
 
 class Trie {
 
