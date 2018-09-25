@@ -3,7 +3,7 @@
 # A3
 
 CC = g++
-CFLAGS = -Wall -std=c++11 -g
+CFLAGS = -Wall -std=c++11 -g # -fsanitize=address -fsanitize=undefined
 
 
 TrieTest : TrieTest.cpp Trie.o
@@ -15,9 +15,15 @@ Trie.o : Trie.cpp Trie.h Node.o
 Node.o : Node.cpp Node.h
 	$(CC) $(CFLAGS) -c Node.cpp -I.
 
+Experiments : Experiments.cpp
+	$(CC) $(CFLAGS) Experiments.cpp -o Experiments
+
 
 clean:
 	rm TrieTest *.o
 
 test:
 		./TrieTest
+
+testExp:
+	./Experiments
